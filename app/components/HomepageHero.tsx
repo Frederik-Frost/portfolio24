@@ -1,27 +1,30 @@
 import { getProjects, getHome } from "@/sanity/sanity-utils";
-import ThemeSwitcher from "@/app/components/ThemeSwitcher";
-import Navbar from "@/app/components/Navbar";
+
 import { PortableText } from "@portabletext/react";
+
+import HomepageCarousel from "@/app/components/HomepageCarousel";
 
 export default async function HomepageHero() {
   const home = await getHome();
+
   return (
-    <div className=" max-w-screen-lg m-auto min-h-screen pt-72 flex flex-col justify-between pb-36">
+    <div className="max-w-screen-lg m-auto pt-72 flex flex-col md:flex-row md:justify-between gap-8 sm:px-4 lg:px-0">
+      <div className="flex flex-col items-center md:items-start ">
+        <h1 className="font-poppins text-4xl sm:text-[48px] font-bold max-w-[400px] tracking-[4px] mt-4 text-deep-purple dark:text-ghost-white">
+          {home.heroTitle}
+        </h1>
+        <h2 className="font-poppins mt-4 text-2xl font-medium text-deep-purple dark:text-ghost-white">
+          {home.heroSubtitle}
+        </h2>
 
-      <div>
-        <ThemeSwitcher />
-        <div className="flex flex-col gap-12">
-          <h1 className="text-4xl sm:text-[48px] font-bold font-poppins max-w-[400px] leading-tight mt-4 bg-gradient-to-r  from-[#FFC8C8] to-[#C8CDFF] dark:to-[#FFC8C8] dark:from-[#C8CDFF] bg-clip-text text-transparent ">
-            {home.heroTitle}
-          </h1>
-
-          <div className="text-poppins">
-            <PortableText value={home.heroSubtitle} />
-          </div>
+        <div className="font-poppins mt-4 dark:text-mid-gray text-dark-gray max-w-sm text-center md:text-start">
+          <PortableText value={home.heroDescription} />
         </div>
       </div>
-
-      <Navbar />
+      <div className="grow flex md:justify-end flex-row">
+        {/* carousel here - latest relevant info  */}
+        <HomepageCarousel />
+      </div>
     </div>
   );
 }

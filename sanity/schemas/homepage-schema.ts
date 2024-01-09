@@ -21,6 +21,11 @@ const Homepage = {
     {
       name: "heroSubtitle",
       title: "Hero Subtitle",
+      type: "string",
+    },
+    {
+      name: "heroDescription",
+      title: "Hero Description",
       type: "array",
       of: [{ type: "block" }],
     },

@@ -1,4 +1,3 @@
-
 "use client";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
@@ -28,14 +27,14 @@ const ThemeSwitcher = () => {
 
     if(currentTheme ==="dark"){
       return (
-        <FaSun className="w-6 h-6 text-[#C8CDFF]" role="button" onClick={() => setTheme('light')} />
+        <FaSun className="w-6 h-6 " role="button" onClick={() => setTheme('light')} />
       )
     }
 
     else {
       return (
-        <FaMoon className="w-6 h-6 text-[#FFC8C8]" role="button" onClick={() => setTheme('dark')} />
-      )
+        <FaMoon className="w-6 h-6 " role="button" onClick={() => setTheme('dark')} />
+        )
     }
  };
 

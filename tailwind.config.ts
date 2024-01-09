@@ -17,6 +17,15 @@ const config: Config = {
       fontFamily: {
         poppins: ['var(--font-poppins)'],
       },
+      colors: {
+        'deep-purple': '#121C36',
+        'dark-purple': '#4E4C83',
+        'purple': '#8D80DD',
+        'purple-o-50': '#4E4C8350',
+        'ghost-white': '#E3E8EF',
+        'mid-gray': '#97A3B6',
+        'dark-gray': '#3C4559',
+      },
     },
   },
   plugins: [],

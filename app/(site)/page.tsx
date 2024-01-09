@@ -5,13 +5,15 @@
 // import Navbar from "@/app/components/Navbar";
 // import { PortableText } from "@portabletext/react";
 
+import HomepageHero from "@/app/components/HomepageHero";
+
 export default async function Home() {
   // const home = await getHome();
   // const projects = await getProjects();
 
   return (
     <div className=" ">
-      
+      <HomepageHero />
       {/* <h2 className="text-3xl text-gray-950 font-bold">My projects go here</h2>
       <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (

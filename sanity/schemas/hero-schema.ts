@@ -11,8 +11,14 @@ const Hero = {
       {
         name: "subtitle",
         title: "Subtitle",
+        type: "string",
+      },
+      {
+        name: "description",
+        title: "Description",
         type: "text",
       },
+
     ],
   };
   
