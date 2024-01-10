@@ -6,31 +6,19 @@
 // import { PortableText } from "@portabletext/react";
 
 import HomepageHero from "@/app/components/HomepageHero";
+import SoMeLinks from "@/app/components/someLinks/SoMeLinks";
 
 export default async function Home() {
   // const home = await getHome();
   // const projects = await getProjects();
 
   return (
-    <div className=" ">
+    <div className="">
       <HomepageHero />
-      {/* <h2 className="text-3xl text-gray-950 font-bold">My projects go here</h2>
-      <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <Link key={project._id} href={`/projects/${project.slug}`} className="border border-gray-500 rounded-lg">
-            <p className="text-cyan-500 font-extrabold">{project.name}</p>
-            {project.image && (
-              <Image
-                src={project.image}
-                alt={project.name}
-                width={750}
-                height={300}
-                className="object-cover rounded-lg border border-gray-500"
-              />
-            )}
-          </Link>
-        ))}
-      </div> */}
+
+      <div className="mt-44 pb-12 max-w-screen-lg m-auto sm:px-4 lg:px-0 flex  justify-center md:justify-start ">
+        <SoMeLinks />
+      </div>
     </div>
   );
 }

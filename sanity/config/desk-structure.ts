@@ -1,8 +1,8 @@
 import { StructureBuilder } from "sanity/desk";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
-import { DocumentTextIcon, HomeIcon, FolderIcon } from "@sanity/icons";
+import { DocumentTextIcon, HomeIcon, FolderIcon, LinkIcon } from "@sanity/icons";
 
-const hiddenDocTypes = ["homepage", "page", "project"]; // specify types to hide
+const hiddenDocTypes = ["homepage", "page", "project", "socialMediaLink"]; // specify types to hide
 
 export const CustomDeskStructure = (S: StructureBuilder, context: any) =>
   S.list()
@@ -13,5 +13,6 @@ export const CustomDeskStructure = (S: StructureBuilder, context: any) =>
 
       orderableDocumentListDeskItem({ type: "page", title: "Pages", icon: FolderIcon, S, context }),
       orderableDocumentListDeskItem({ type: "project", title: "Projects", icon: DocumentTextIcon, S, context }),
+      orderableDocumentListDeskItem({ type: "socialMediaLink", title: "SoMe links", icon: LinkIcon, S, context }),
     ]);
 

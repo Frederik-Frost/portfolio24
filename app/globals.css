@@ -7,3 +7,21 @@
       @apply text-[#40464A] dark:text-[#F9FAFB];
     }
   }
+
+@layer components{
+    .btn{
+      @apply px-4 py-2 rounded-md shadow-md;
+    }
+
+    .btn-primary{
+      @apply text-ghost-white bg-purple px-3 py-1 rounded-full shadow hover:bg-dark-purple focus:bg-dark-purple hover:shadow-md focus:shadow-md dark:bg-dark-purple dark:hover:bg-purple dark:focus:bg-purple;
+    }
+
+    .btn-icon {
+      @apply flex flex-row items-center justify-between gap-3 text-base font-medium;
+    }
+
+    .btn-icon > svg {
+      @apply text-xs;
+    }
+  }

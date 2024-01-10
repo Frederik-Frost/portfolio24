@@ -1,6 +1,8 @@
 import { Project } from "@/types/Project";
 import { Page } from "@/types/Page";
 import { HomePage } from "@/types/HomePage";
+import { SocialMediaLink } from "@/types/SocialMediaLink";
+
 import { createClient, groq } from "next-sanity";
 import clientConfig from "./config/client-config";
 
@@ -59,4 +61,15 @@ export async function getPage(slug: string): Promise<Page> {
 
 export async function getHome(): Promise<HomePage> {
   return createClient(clientConfig).fetch(groq`*[ _type == "homepage"][0]`);
+}
+
+export async function getSocialMediaLinks(): Promise<SocialMediaLink[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[ _type == "socialMediaLink"]|order(orderRank){
+      _id,
+      _createdAt,
+      name,
+      url
+    }`,
+  );
 }

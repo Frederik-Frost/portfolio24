@@ -5,7 +5,7 @@ const Project = {
   type: "document",
   orderings: [orderRankOrdering],
   fields: [
-    orderRankField({ type: "page" }),
+    orderRankField({ type: "project" }),
     {
       name: "name",
       title: "Name",
