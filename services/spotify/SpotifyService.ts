@@ -20,10 +20,10 @@ export class SpotifyService {
   }
 
   async getAccessToken(): Promise<any> {
-    const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
+    const endpoint = `https://accounts.spotify.com/api/token`;
     const basicAuth = Buffer.from(`${this.clientId}:${this.clientSecret}`).toString("base64");
 
-    const response = await fetch(TOKEN_ENDPOINT, {
+    const response = await fetch(endpoint, {
       method: "POST",
       headers: {
         Authorization: `Basic ${basicAuth}`,
@@ -50,7 +50,7 @@ export class SpotifyService {
     if (!response.ok || response.status === 204 || response.status > 400) {
       const notPlaying: SongResponse = {
         isPlaying: false,
-        title: "Not Playing",
+        title: "Working in silence..",
       };
       return NextResponse.json(notPlaying);
     }
@@ -61,7 +61,7 @@ export class SpotifyService {
     if (data.error || !["episode", "track"].includes(data.currently_playing_type)) {
       const notPlaying: SongResponse = {
         isPlaying: false,
-        title: "Not Playing",
+        title: "Working in silence..",
       };
       return NextResponse.json(notPlaying);
     }

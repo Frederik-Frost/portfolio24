@@ -2,22 +2,21 @@ import { getLatestProject } from "@/sanity/sanity-utils";
 
 import { FaArrowRight } from "react-icons/fa";
 import { revalidatePath, revalidateTag } from "next/cache";
+import { SongResponse } from "@/services/spotify/SongResponse";
 
 const nowPlaying = async () => {
   // revalidate the cache for this tag
   const response = await fetch(`${process.env.URL}/api/spotify/playing`, {
-    cache: "no-store"
+    cache: "no-store",
   });
   const data = await response.json();
   console.log("data", data);
   return data;
 };
- 
 
 export default async function HomepageCarousel() {
   const latestProject = await getLatestProject();
-
-  const music = await nowPlaying();
+  const music: SongResponse = await nowPlaying();
 
   return (
     <div className="grow m-auto md:m-[unset] max-w-[90%] md:min-w-[350px] md:max-w-[500px] bg-purple dark:bg-purple-o-50 rounded-3xl p-5">
@@ -33,7 +32,18 @@ export default async function HomepageCarousel() {
 
       {latestProject.name}
 
-      {JSON.stringify(music)}
+      {music && (
+        <div>
+          <h3>Now playing</h3>
+          <div>
+            {music.albumImageUrl && <img src={music.albumImageUrl} alt="album cover" width={64} height="auto" />}
+            <div>
+              <h4>{music.title}</h4>
+              <p>{music.artist}</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* <button onClick={testSpotifyLogin}>Test</button> */}
     </div>
