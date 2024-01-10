@@ -1,6 +1,24 @@
-import { FaArrowRight } from "react-icons/fa";
+import { getLatestProject } from "@/sanity/sanity-utils";
 
-export default function HomepageCarousel() {
+import { FaArrowRight } from "react-icons/fa";
+import { revalidatePath, revalidateTag } from "next/cache";
+
+const nowPlaying = async () => {
+  // revalidate the cache for this tag
+  const response = await fetch(`${process.env.URL}/api/spotify/playing`, {
+    cache: "no-store"
+  });
+  const data = await response.json();
+  console.log("data", data);
+  return data;
+};
+ 
+
+export default async function HomepageCarousel() {
+  const latestProject = await getLatestProject();
+
+  const music = await nowPlaying();
+
   return (
     <div className="grow m-auto md:m-[unset] max-w-[90%] md:min-w-[350px] md:max-w-[500px] bg-purple dark:bg-purple-o-50 rounded-3xl p-5">
       <h3 className=" tracking-[3px] font-medium text-dark-purple dark:text-purple">Latest project</h3>
@@ -12,6 +30,12 @@ export default function HomepageCarousel() {
           <FaArrowRight className="" />
         </button>
       </div>
+
+      {latestProject.name}
+
+      {JSON.stringify(music)}
+
+      {/* <button onClick={testSpotifyLogin}>Test</button> */}
     </div>
   );
 }

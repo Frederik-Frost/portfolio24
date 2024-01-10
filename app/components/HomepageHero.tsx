@@ -21,7 +21,7 @@ export default async function HomepageHero() {
           <PortableText value={home.heroDescription} />
         </div>
 
-        <button className="btn-primary btn-icon mt-3">
+        <button className="btn-primary btn-icon mt-8">
           <span>Say hi</span>
           <FaPhoneAlt />
         </button>

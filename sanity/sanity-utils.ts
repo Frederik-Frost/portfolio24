@@ -20,6 +20,20 @@ export async function getProjects(): Promise<Project[]> {
   );
 }
 
+export async function getLatestProject(): Promise<Project> {
+  return createClient(clientConfig).fetch(
+    groq`*[ _type == "project" ]|order(orderRank)[0]{
+      _id,
+      _createdAt,
+      name,
+      "slug": slug.current,
+      "image": image.asset->url,
+      url,
+      content
+    }`,
+  );
+}
+
 export async function getProject(slug: string): Promise<Project> {
   return createClient(clientConfig).fetch(
     groq`*[ _type == "project" && slug.current == $slug ][0]{
