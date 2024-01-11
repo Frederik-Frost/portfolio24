@@ -3,6 +3,8 @@ import { getLatestProject } from "@/sanity/sanity-utils";
 import { FaArrowRight } from "react-icons/fa";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { SongResponse } from "@/services/spotify/SongResponse";
+import ContentCarousel from "@/app/components/contentCarousel/ContentCarousel";
+import ContentCarouselItem from "@/app/components/contentCarousel/ContentCarouselItem";
 
 const nowPlaying = async () => {
   // revalidate the cache for this tag
@@ -44,6 +46,20 @@ export default async function HomepageCarousel() {
           </div>
         </div>
       )}
+
+
+      <ContentCarousel>
+        <ContentCarouselItem>123</ContentCarouselItem>
+        <ContentCarouselItem>item 2</ContentCarouselItem>
+        <ContentCarouselItem>item 3</ContentCarouselItem>
+      </ContentCarousel>
+
+
+
+
+
+
+
 
       {/* <button onClick={testSpotifyLogin}>Test</button> */}
     </div>

@@ -20,7 +20,7 @@ export class SpotifyService {
   }
 
   async getAccessToken(): Promise<any> {
-    const endpoint = `https://accounts.spotify.com/api/token`;
+    const endpoint = "https://accounts.spotify.com/api/token";
     const basicAuth = Buffer.from(`${this.clientId}:${this.clientSecret}`).toString("base64");
 
     const response = await fetch(endpoint, {
@@ -34,7 +34,7 @@ export class SpotifyService {
         refresh_token: this.refreshToken,
       }),
     });
-
+    
     return response.json();
   }
 
