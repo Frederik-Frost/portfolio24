@@ -19,9 +19,9 @@ const NavigationList = ({
 }: NavigationListProps) => {
   return (
     <ul className={listClasses}>
-      <li className={listItemClasses}>
+      {/* <li className={listItemClasses}>
         <Link href={`/`} onClick={onClose}>Home</Link>
-      </li>
+      </li> */}
       {pages.map((page) => (
         <li key={page._id} className={listItemClasses}>
           <Link href={`/${page.slug}`} className={listItemClasses} onClick={onClose}>

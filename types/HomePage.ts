@@ -5,4 +5,5 @@ export type HomePage = {
   heroTitle: string;
   heroSubtitle: string;
   heroDescription: PortableTextBlock[];
+  
 };

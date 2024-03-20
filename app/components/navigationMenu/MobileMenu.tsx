@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, ReactNode } from "react";
 
 import ThemeSwitcher from "./ThemeSwitcher";
 import NavigationList from "./NavigationList";
@@ -8,9 +8,10 @@ import { Page } from "@/types/Page";
 
 interface MobileMenuProps {
   pages: Page[];
+  children?: ReactNode;
 }
 
-const MobileMenu = ({ pages }: MobileMenuProps) => {
+const MobileMenu = ({ pages, children }: MobileMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
@@ -45,6 +46,7 @@ const MobileMenu = ({ pages }: MobileMenuProps) => {
           <NavigationList pages={pages} listClasses={listClasses} listItemClasses={listItemClasses} onClose={onClose} />
           <div className={listItemClasses}>
             <ThemeSwitcher />
+            {children}
           </div>
         </div>
       </div>

@@ -17,8 +17,7 @@ const Hero = {
         name: "description",
         title: "Description",
         type: "text",
-      },
-
+      }
     ],
   };
   
