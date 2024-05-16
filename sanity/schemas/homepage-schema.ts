@@ -13,27 +13,10 @@ const Homepage = {
       title: 'Page Description',
       type: 'text',
     },
-    {
-      name: 'heroTitle',
-      title: 'Hero Title',
-      type: 'string',
-    },
-    {
-      name: 'heroSubtitle',
-      title: 'Hero Subtitle',
-      type: 'string',
-    },
-    {
-      name: 'heroDescription',
-      title: 'Hero Description',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'textWithProfileCard',
-      title: 'Text with profile card',
-      type: 'textWithProfileCard'
-    }
+    { name: 'hero', title: 'Hero', type: 'hero' },
+    { name: 'latestProjects', title: 'Latest Projects', type: 'latestProjects' },
+
+ 
   ],
 };
 export default Homepage;

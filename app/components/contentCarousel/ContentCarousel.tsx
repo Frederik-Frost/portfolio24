@@ -1,11 +1,13 @@
-"use client";
-import { useState, useEffect, ReactNode } from "react";
+'use client';
+import { useState, useEffect, ReactNode } from 'react';
 
 type CarouselProps = {
   children: ReactNode[];
+  dots: boolean;
+  placement?: 'center' | 'left' | 'right';
 };
 
-const ContentCarousel = ({ children }: CarouselProps) => {
+const ContentCarousel = ({ children, dots }: CarouselProps) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -23,20 +25,24 @@ const ContentCarousel = ({ children }: CarouselProps) => {
   return (
     <div className="carousel-container">
       <div className="carousel-content">{children[activeIndex]}</div>
-
-      <div className="carousel-nav">
-        <button onClick={() => setActiveIndex((prev) => prev - 1)}>Prev</button>
-        <button onClick={() => setActiveIndex((prev) => prev + 1)}>Next</button>
-      </div>
+      {(dots && (
+        <div className="carousel-dots">
+          {children.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className={index === activeIndex ? 'active' : ''}
+            ></button>
+          ))}
+        </div>
+      )) || (
+        <div className="carousel-nav text-inherit">
+          <button onClick={() => setActiveIndex((prev) => prev - 1)}>Prev</button>
+          <button onClick={() => setActiveIndex((prev) => prev + 1)}>Next</button>
+        </div>
+      )}
     </div>
   );
-
-  //   return children.map((item: any, index: number) => (
-  //     <div key={index} className="carousel-item">
-  //       <div>{index} :::: </div>
-  //       <div>{item}</div>
-  //     </div>
-  //   ));
 };
 
 export default ContentCarousel;

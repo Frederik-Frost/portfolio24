@@ -36,6 +36,11 @@ const Project = {
       type: "url",
     },
     {
+      name: "shortDescription",
+      title: "Short Description",
+      type: "string",
+    },
+    {
       name: "content",
       title: "Content",
       type: "array",

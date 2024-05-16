@@ -1,9 +1,10 @@
-import { PortableTextBlock } from "sanity";
+import { PortableTextBlock } from 'sanity';
+import { HeroBlock } from './HeroBlock';
+import { LatestProjects } from './LatestProjects';
 export type HomePage = {
   _id: string;
   title: string;
-  heroTitle: string;
-  heroSubtitle: string;
-  heroDescription: PortableTextBlock[];
-  
+  description: PortableTextBlock[];
+  hero: HeroBlock;
+  latestProjects: LatestProjects;
 };

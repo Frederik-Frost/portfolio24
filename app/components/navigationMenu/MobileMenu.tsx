@@ -25,7 +25,7 @@ const MobileMenu = ({ pages, children }: MobileMenuProps) => {
   // Styling for the bar menu icon
   const defaultBarClasses: string = "h-[2px] dark:bg-ghost-white bg-dark-gray rounded-full transition-all";
   const normalBarClasses: string = defaultBarClasses.concat(" ", "w-[24px]");
-  const smallBarClasses: string = defaultBarClasses.concat(" ", "w-[18px]") + (isOpen ? " w-[0]" : "");
+  const smallBarClasses: string = defaultBarClasses.concat(" ", "w-[18px]") + (isOpen ? " w-[0px]" : "");
   const topBarClasses: string = normalBarClasses + (isOpen ? " transform rotate-45 translate-y-[6px]" : "");
   const bottomBarClasses: string = normalBarClasses + (isOpen ? " transform -rotate-45 -translate-y-[6px]" : "");
 
@@ -40,7 +40,7 @@ const MobileMenu = ({ pages, children }: MobileMenuProps) => {
   }`;
 
   return (
-    <div className=" flex justify-end">
+    <div className="grow flex justify-end">
       <div className={overlayWrapperStyles}>
         <div className="flex flex-col items-end gap-4 px-4 ">
           <NavigationList pages={pages} listClasses={listClasses} listItemClasses={listItemClasses} onClose={onClose} />
@@ -51,7 +51,7 @@ const MobileMenu = ({ pages, children }: MobileMenuProps) => {
         </div>
       </div>
 
-      <button className={"flex flex-col justify-center items-end gap-1 relative z-50 "} onClick={toggleOpen}>
+      <button className={"flex flex-col justify-center items-end gap-1 relative z-50"} onClick={toggleOpen}>
         <div className={topBarClasses}></div>
         <div className={smallBarClasses}></div>
         <div className={bottomBarClasses}></div>

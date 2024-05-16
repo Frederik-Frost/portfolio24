@@ -14,18 +14,19 @@ interface NavMenuProps {
   children?: ReactNode;
 }
 const NavMenu = ({ pages, children }: NavMenuProps) => {
-  const showMobileMenu = useMediaQuery(1024);
+  const showMobileMenu: boolean = useMediaQuery(1024);
+  const scrollPosition: number = useScrollPosition();
 
-  const scrollPosition = useScrollPosition();
   const [showBackground, setShowBackground] = useState(false);
   useEffect(() => {
-    console.log('runs', scrollPosition);
-    if (scrollPosition > 20) {
-      setShowBackground(true);
-    } else {
-      setShowBackground(false);
-    }
+    scrollPosition > 20 ? setShowBackground(true) : setShowBackground(false);
   }, [scrollPosition]);
+
+
+  
+
+
+
 
   return (
     <div

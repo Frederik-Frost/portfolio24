@@ -21,18 +21,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} dark:bg-deep-purple bg-ghost-white dark:text-ghost-white text-deep-purple min-h-screen`}
+        className={`${poppins.variable} dark:bg-deep-purple bg-white dark:text-ghost-white text-deep-purple min-h-screen`}
       >
         <Provider>
           <div
             className={
-              'absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] max-w-[75%] max-h-[75%] bg-purple rounded-full blur-[105px] opacity-30 -z-10'
+              'absolute top-[90%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] max-w-[75%] max-h-[75%] bg-purple rounded-full blur-[85px] opacity-30 -z-10'
             }
           ></div>
-          <header className="">
-            
-              <NavigationMenu />
-            
+          <header>
+            <NavigationMenu />
           </header>
           <main>{children}</main>
         </Provider>

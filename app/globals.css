@@ -6,19 +6,25 @@
     body{
       @apply text-[#40464A] dark:text-[#F9FAFB];
     }
+    h2{
+      @apply font-poppins mt-4 text-2xl font-medium text-deep-purple dark:text-ghost-white;
+    }
+    p{
+      @apply font-poppins text-base text-mid-gray dark:text-ghost-white;
+    }
   }
 
 @layer components{
     .btn{
       @apply px-4 py-2 rounded-md shadow-md;
     }
-
+    
     .btn-primary{
-      @apply text-ghost-white bg-deep-purple border-2 border-deep-purple px-3 py-1 rounded-full shadow  hover:shadow-md focus:shadow-md dark:bg-dark-purple dark:hover:bg-purple dark:focus:bg-purple;
+      @apply text-ghost-white bg-deep-purple border border-deep-purple px-3 py-1 rounded-full shadow  hover:shadow-md focus:shadow-md dark:bg-dark-purple dark:hover:bg-purple dark:focus:bg-purple;
     }
 
     .btn-primary-outline {
-      @apply text-deep-purple border-2 border-deep-purple px-3 py-1 rounded-full shadow-md hover:shadow-lg focus:shadow-lg dark:border-purple dark:hover:border-purple dark:focus:border-purple;
+      @apply text-deep-purple border border-deep-purple px-3 py-1 rounded-full shadow-md hover:shadow-lg focus:shadow-lg dark:border-purple dark:hover:border-purple dark:focus:border-purple;
     }
 
     .btn-icon {
@@ -27,5 +33,15 @@
 
     .btn-icon > svg {
       @apply w-4 h-4;
+    }
+
+    .carousel-dots{
+      @apply flex flex-row items-center justify-center gap-2;
+    }
+    .carousel-dots button{
+      @apply w-2 h-2 rounded-full bg-mid-gray dark:bg-ghost-white;
+    }
+    .carousel-dots button.active{
+      @apply  bg-white dark:bg-white;
     }
   }

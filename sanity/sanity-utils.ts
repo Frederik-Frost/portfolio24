@@ -74,7 +74,17 @@ export async function getPage(slug: string): Promise<Page> {
 }
 
 export async function getHome(): Promise<HomePage> {
-  return createClient(clientConfig).fetch(groq`*[ _type == "homepage"][0]`);
+  // Make references available in the query using the "->" operator
+  return createClient(clientConfig).fetch(groq`*[ _type == "homepage"][0]{
+    ..., 
+    latestProjects{
+      ...,
+      projects[]->{
+        ...,
+        "imageUrl": image.asset->url
+      }
+    }
+  }`);
 }
 
 export async function getSocialMediaLinks(): Promise<SocialMediaLink[]> {
