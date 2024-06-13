@@ -25,7 +25,7 @@ const NavigationList = ({
       {pages.map((page) => (
         <li key={page._id} className={listItemClasses}>
           <Link href={`/${page.slug}`} className={listItemClasses} onClick={onClose}>
-            <p className="text-inherit font-inherit">{page.title}</p>
+            <p className="text-inherit font-inherit dark:text-inherit dark:font-inherit">{page.title}</p>
           </Link>
         </li>
       ))}

@@ -5,10 +5,15 @@ type CarouselProps = {
   children: ReactNode[];
   dots: boolean;
   placement?: 'center' | 'left' | 'right';
+  getActiveIndex: (index: number) => void;
 };
 
-const ContentCarousel = ({ children, dots }: CarouselProps) => {
+const ContentCarousel = ({ children, dots, getActiveIndex }: CarouselProps) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  const emitActiveIndex = (index: number) => {
+    getActiveIndex(index);
+  };
 
   useEffect(() => {
     const lastIndex = children.length - 1;
@@ -20,27 +25,32 @@ const ContentCarousel = ({ children, dots }: CarouselProps) => {
     if (activeIndex > lastIndex) {
       setActiveIndex(0);
     }
-  }, [activeIndex, children]);
+
+    emitActiveIndex(activeIndex);
+  }, [activeIndex]);
 
   return (
-    <div className="carousel-container">
+    <div className="carousel-container flex flex-col items-stretch ">
       <div className="carousel-content">{children[activeIndex]}</div>
-      {(dots && (
-        <div className="carousel-dots">
-          {children.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveIndex(index)}
-              className={index === activeIndex ? 'active' : ''}
-            ></button>
-          ))}
-        </div>
-      )) || (
-        <div className="carousel-nav text-inherit">
-          <button onClick={() => setActiveIndex((prev) => prev - 1)}>Prev</button>
-          <button onClick={() => setActiveIndex((prev) => prev + 1)}>Next</button>
-        </div>
-      )}
+
+      <div className="">
+        {(dots && (
+          <div className="carousel-dots">
+            {children.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveIndex(index)}
+                className={index === activeIndex ? 'active' : ''}
+              ></button>
+            ))}
+          </div>
+        )) || (
+          <div className="carousel-nav text-inherit">
+            <button onClick={() => setActiveIndex((prev) => prev - 1)}>Prev</button>
+            <button onClick={() => setActiveIndex((prev) => prev + 1)}>Next</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

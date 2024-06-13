@@ -9,9 +9,10 @@ import { Page } from "@/types/Page";
 interface MobileMenuProps {
   pages: Page[];
   children?: ReactNode;
+  showBackground: boolean;
 }
 
-const MobileMenu = ({ pages, children }: MobileMenuProps) => {
+const MobileMenu = ({ pages, children, showBackground }: MobileMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
@@ -23,9 +24,10 @@ const MobileMenu = ({ pages, children }: MobileMenuProps) => {
   };
 
   // Styling for the bar menu icon
-  const defaultBarClasses: string = "h-[2px] dark:bg-ghost-white bg-dark-gray rounded-full transition-all";
+  let defaultBarClasses: string = "h-[2px] rounded-full transition-all" ;
+  defaultBarClasses = defaultBarClasses.concat(" ", showBackground && !isOpen ? "bg-ghost-white " : "dark:bg-ghost-white bg-deep-purple"); 
   const normalBarClasses: string = defaultBarClasses.concat(" ", "w-[24px]");
-  const smallBarClasses: string = defaultBarClasses.concat(" ", "w-[18px]") + (isOpen ? " w-[0px]" : "");
+  const smallBarClasses: string = defaultBarClasses.concat(" ", "w-[18px]") + (isOpen ? " w-[1px] opacity-0" : "");
   const topBarClasses: string = normalBarClasses + (isOpen ? " transform rotate-45 translate-y-[6px]" : "");
   const bottomBarClasses: string = normalBarClasses + (isOpen ? " transform -rotate-45 -translate-y-[6px]" : "");
 
@@ -50,7 +52,7 @@ const MobileMenu = ({ pages, children }: MobileMenuProps) => {
           </div>
         </div>
       </div>
-
+      
       <button className={"flex flex-col justify-center items-end gap-1 relative z-50"} onClick={toggleOpen}>
         <div className={topBarClasses}></div>
         <div className={smallBarClasses}></div>

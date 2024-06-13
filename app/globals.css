@@ -2,46 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-    body{
-      @apply text-[#40464A] dark:text-[#F9FAFB];
-    }
-    h2{
-      @apply font-poppins mt-4 text-2xl font-medium text-deep-purple dark:text-ghost-white;
-    }
-    p{
-      @apply font-poppins text-base text-mid-gray dark:text-ghost-white;
-    }
+@layer base {
+  body {
+    @apply text-[#40464A] dark:text-[#F9FAFB];
+  }
+  h2 {
+    @apply font-poppins mt-4 text-2xl font-medium text-deep-purple dark:text-ghost-white;
+  }
+  p {
+    @apply font-poppins text-base text-mid-gray dark:text-ghost-white;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md shadow-md transition-all duration-75 ease-in-out;
   }
 
-@layer components{
-    .btn{
-      @apply px-4 py-2 rounded-md shadow-md;
-    }
-    
-    .btn-primary{
-      @apply text-ghost-white bg-deep-purple border border-deep-purple px-3 py-1 rounded-full shadow  hover:shadow-md focus:shadow-md dark:bg-dark-purple dark:hover:bg-purple dark:focus:bg-purple;
-    }
-
-    .btn-primary-outline {
-      @apply text-deep-purple border border-deep-purple px-3 py-1 rounded-full shadow-md hover:shadow-lg focus:shadow-lg dark:border-purple dark:hover:border-purple dark:focus:border-purple;
-    }
-
-    .btn-icon {
-      @apply flex flex-row items-center justify-between gap-2 text-base font-medium h-full;
-    }
-
-    .btn-icon > svg {
-      @apply w-4 h-4;
-    }
-
-    .carousel-dots{
-      @apply flex flex-row items-center justify-center gap-2;
-    }
-    .carousel-dots button{
-      @apply w-2 h-2 rounded-full bg-mid-gray dark:bg-ghost-white;
-    }
-    .carousel-dots button.active{
-      @apply  bg-white dark:bg-white;
-    }
+  .btn-primary {
+    @apply text-ghost-white bg-deep-purple border border-deep-purple px-3 py-1 rounded-full shadow  hover:shadow-md focus:shadow-md dark:bg-ghost-white dark:hover:bg-purple-o-50 dark:focus:bg-purple-o-50 dark:hover:border-ghost-white dark:focus:border-ghost-white dark:hover:text-ghost-white dark:focus:text-ghost-white  dark:text-deep-purple;
   }
+
+  .btn-primary-outline {
+    @apply text-deep-purple border border-deep-purple px-3 py-1 rounded-full shadow-md hover:shadow-lg focus:shadow-lg dark:border-ghost-white dark:hover:border-white dark:focus:border-white dark:text-ghost-white  dark:hover:bg-purple-o-50 dark:focus:bg-purple-o-50;
+  }
+
+  .btn-outline-reverse {
+    @apply text-ghost-white border border-ghost-white px-3 py-1 rounded-full shadow-md hover:shadow-lg focus:shadow-lg dark:border-ghost-white dark:hover:border-white dark:focus:border-white dark:text-ghost-white dark:hover:bg-purple-o-50 dark:focus:bg-purple-o-50;
+  }
+
+  .btn-underlined {
+    @apply text-deep-purple border-b rounded-none border-deep-purple px-0 py-1 shadow-md hover:shadow-lg focus:shadow-lg dark:border-ghost-white dark:hover:border-white dark:focus:border-white dark:text-ghost-white dark:hover:bg-purple-o-50 dark:focus:bg-purple-o-50 font-normal;
+  }
+
+  .btn-underlined-reverse {
+    @apply text-ghost-white border-b rounded-none border-ghost-white px-0 py-1 shadow-md hover:shadow-lg focus:shadow-lg dark:border-ghost-white dark:hover:border-white dark:focus:border-white dark:text-ghost-white dark:hover:bg-purple-o-50 dark:focus:bg-purple-o-50 font-normal;
+  }
+
+  .btn-icon {
+    @apply flex flex-row items-center justify-between gap-2 text-base font-medium h-full;
+  }
+
+  .btn-icon > svg {
+    @apply w-4 h-4;
+  }
+
+  .carousel-dots {
+    @apply flex flex-row items-center justify-center gap-2;
+  }
+  .carousel-dots button {
+    @apply w-3 h-3 rounded-full bg-mid-gray dark:bg-ghost-white;
+  }
+  .carousel-dots button.active {
+    @apply bg-white dark:bg-white;
+  }
+}

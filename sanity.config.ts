@@ -10,6 +10,7 @@ const config = defineConfig({
   title: "Portfolio App",
   apiVersion: "2023-09-20",
   basePath: "/admin",
+  useCdn: false,
   plugins: [
     deskTool({
       structure: CustomDeskStructure,

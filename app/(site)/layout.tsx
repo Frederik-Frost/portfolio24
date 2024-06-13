@@ -5,6 +5,7 @@ import { Poppins } from 'next/font/google';
 import Provider from '@/app/components/Provider';
 import NavigationMenu from '@/app/components/navigationMenu/NavigationMenu';
 
+
 const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
@@ -21,14 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} dark:bg-deep-purple bg-white dark:text-ghost-white text-deep-purple min-h-screen`}
+        className={`${poppins.variable} dark:bg-dark-bg bg-white dark:text-ghost-white text-deep-purple min-h-screen `}
       >
         <Provider>
-          <div
-            className={
-              'absolute top-[90%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] max-w-[75%] max-h-[75%] bg-purple rounded-full blur-[85px] opacity-30 -z-10'
-            }
-          ></div>
           <header>
             <NavigationMenu />
           </header>

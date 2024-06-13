@@ -17,6 +17,9 @@ const config: Config = {
       fontFamily: {
         poppins: ['var(--font-poppins)'],
       },
+      fontSize:{
+        'clamp-title': 'clamp(24px, 48px, 10vw)',
+      },
       colors: {
         'deep-purple': '#121C36',
         'dark-purple': '#4E4C83',
@@ -25,6 +28,9 @@ const config: Config = {
         'ghost-white': '#E3E8EF',
         'mid-gray': '#97A3B6',
         'dark-gray': '#3C4559',
+        'dark-blob': '#5c9df1',
+        'blob': '#5c9df1',
+        'dark-bg':  '#272a32'
       },
     },
   },
